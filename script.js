@@ -16,7 +16,7 @@ async function getData(url) {
     showData(data)
 }
 
-var mymap = L.map(mapEl).setView([29.07372, -10.46533], 10);
+var mymap = L.map(mapEl).setView([50.44767, 23.41616], 10);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}{r}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
