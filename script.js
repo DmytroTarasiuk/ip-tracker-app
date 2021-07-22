@@ -16,6 +16,17 @@ async function getData(url) {
     showData(data)
 }
 
+var mymap = L.map(mapEl).setView([29.07372, -10.46533], 10);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}{r}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoiZG15dHJvMjUiLCJhIjoiY2tyZXNkeW53MXVsYTJwcXV2M213ZzBkcSJ9.2xOT6OUbBz-GVP7-cyiJnw'
+    }).addTo(mymap);
+//var marker = L.marker([29.07372, -10.46533]).addTo(mymap);
+
 
 function showData(result) {
     const {ip, location, isp, as} = result
@@ -26,7 +37,7 @@ function showData(result) {
     </div>
     <div class="result">
       <p>Location</p>
-      <h3>${location.region}</h3>
+      <h3>${location.region}, ${location.city}</h3>
     </div>
     <div class="result">
       <p>Timezone</p>
@@ -36,19 +47,9 @@ function showData(result) {
       <p>Isp</p>
       <h3>${isp}</h3>
     </div>
-    `
-    
-    var mymap = L.map(mapEl).setView([location.lat, location.lng], 10);
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'pk.eyJ1IjoiZG15dHJvMjUiLCJhIjoiY2tyZXNkeW53MXVsYTJwcXV2M213ZzBkcSJ9.2xOT6OUbBz-GVP7-cyiJnw'
-    }).addTo(mymap);
-    var marker = L.marker([location.lat, location.lng]).addTo(mymap);
-    
+    `   
+    mymap.setView([location.lat, location.lng], 13);
+	var marker = L.marker([location.lat, location.lng]).addTo(mymap); 
 }
 
 
