@@ -1,3 +1,8 @@
+live : https://dmytrotarasiuk.github.io/InteractivePricing/
+
+As a part of Frontend Mentor Challenge https://www.frontendmentor.io/. Coded by Dmytro Tarasiuk
+
+
 # Frontend Mentor - IP address tracker
 
 ![Design preview for the IP address tracker coding challenge](./design/desktop-preview.jpg)
